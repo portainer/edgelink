@@ -1,0 +1,22 @@
+edition = "2023";
+
+package keyx;
+
+option features.field_presence = IMPLICIT;
+option go_package = "github.com/portainer/edgelink/examples/grpc";
+
+// TestGRPC is a simple GRPC service that sends a message and receives a message.
+service TestGRPC {
+  // Test sends a message and receives a message.
+  rpc Test(TestRequest) returns (TestResponse) {}
+}
+
+// TestRequest is the request message containing the message to send.
+message TestRequest {
+  string msg = 1;
+}
+
+// TestResponse is the response message containing the message received.
+message TestResponse {
+  string msg = 1;
+}

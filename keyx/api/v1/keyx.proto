@@ -1,0 +1,29 @@
+// The keyx package defines the protocol buffer messages and services
+// used for key exchange operations. This is part of the edgelink
+// system, which uses the exchanged keys to setup a wireguard based
+// secure tunnel.
+
+edition = "2023";
+
+package keyx;
+
+option features.field_presence = IMPLICIT;
+option go_package = "github.com/portainer/edgelink/keyx";
+
+// The KeyExchange service provides an RPC method for exchanging
+// public keys between nodes.
+service KeyExchange {
+  // ExchangeKeys is an RPC method that allows a client to send its
+  // public key to the server and receive the server's public key in
+  // response.
+  rpc ExchangeKeys(PublicKey) returns (PublicKey) {}
+}
+
+// PublicKey is a message that contains a single field, 'key', which
+// represents a public key in string format. This message is used in
+// the ExchangeKeys RPC method to facilitate the exchange of public
+// keys between nodes.
+message PublicKey {
+  // key is a string representation of a public key.
+  string key = 1;
+}
