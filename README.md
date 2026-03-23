@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> EdgeLink is no longer maintained and this repository is now archived.
+
 # EdgeLink
 
 EdgeLink is a Go library designed to establish secure, point-to-point network links between two applications. It leverages a userspace WireGuard implementation to create secure tunnels, making it ideal for containerized environments without requiring specific container permissions.
